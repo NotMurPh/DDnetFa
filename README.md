@@ -5,7 +5,7 @@ also you can modify the app to add other Lang's as well
 
 # How to add other langs:
 So for adding other langs to the app you have to open the DDNetFa.py
-and make instanse of the FarsiConverter Class like this ```python3 Z1=FarsiConverter(name='ذ',isolated='ﺫ',start='ﺫ',mid='ﺬ',end='ﺬ')```
+and make instanse of the FarsiConverter Class like this ```python Z1=FarsiConverter(name='ذ',isolated='ﺫ',start='ﺫ',mid='ﺬ',end='ﺬ')```
 and for the inputs of the instanse you have to open charecter map on windows pick a font that has your lang in it and add the charecters styles like so
 btw you have to enter the name manually by keyboard
 
