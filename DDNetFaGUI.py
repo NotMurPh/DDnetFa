@@ -64,6 +64,7 @@ class Ui_MainWindow(QMainWindow):
         _translate = QtCore.QCoreApplication.translate
         self.setWindowTitle(_translate('MainWindow', 'DDNetFa'))
         self.setWindowIcon(QtGui.QIcon(r'C:\Users\PouyaCr72\Desktop\Projects\Python Projects\DDnetFarsi\GUI\Icons\DDNetFaIcon.svg'))
+        self.setFocus()
         self.show()
         
         self.exit_btn = QtWidgets.QPushButton(self)
@@ -162,6 +163,10 @@ class Ui_MainWindow(QMainWindow):
             self.input_text.setText('')
             self.output_text.show()
             self.output_text.setStyleSheet(f'color:rgb({random.randint(0,255)},{random.randint(0,255)},{random.randint(0,255)});font-family:IRANSansWeb;')
+
+    def keyPressEvent(self,event):
+        if event.key() == 16777220 or event.key() == 16777221:
+            self.CopyBtn()
 
     def mousePressEvent(self, event):
         self.oldPos = event.globalPos()
