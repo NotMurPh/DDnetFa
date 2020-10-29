@@ -32,21 +32,29 @@ class FarsiConverter():
 
     @staticmethod
     def AddUnknownChars():
+        AllNonChar=False
         if len(FarsiConverter.UnknwonChars)>0:
             if len(FarsiConverter.UnknwonChars)>1:
                 for LastLeftNonChar in range(len(FarsiConverter.UnknwonChars)):
-                    if FarsiConverter.UnknwonChars[LastLeftNonChar].isalpha()==True:
+                    if FarsiConverter.UnknwonChars[LastLeftNonChar].isalnum()==True:
+                        LastLeftNonChar-=1
                         break
-                # LastLeftNonChar-=1
-                for LastRightNonChar in range(len(FarsiConverter.UnknwonChars)-1,0,-1):
-                    if FarsiConverter.UnknwonChars[LastRightNonChar].isalpha()==True:
-                        break
-                LastRightNonChar+=1
+                else:
+                    AllNonChar=True
 
-                if FarsiConverter.Farsi==True:
-                    FarsiConverter.UnknwonChars=FarsiConverter.UnknwonChars[LastRightNonChar:][::-1]+FarsiConverter.UnknwonChars[LastLeftNonChar:LastRightNonChar]+FarsiConverter.UnknwonChars[:LastLeftNonChar][::-1]
-                    
-            FarsiConverter.ConvertedText+=FarsiConverter.UnknwonChars[::-1]
+                for LastRightNonChar in range(len(FarsiConverter.UnknwonChars)-1,-1,-1):
+                    if FarsiConverter.UnknwonChars[LastRightNonChar].isalnum()==True:
+                        LastRightNonChar+=1
+                        break
+
+                if FarsiConverter.Farsi==True and AllNonChar==False:
+                    FarsiConverter.UnknwonChars=FarsiConverter.UnknwonChars[LastRightNonChar:][::-1]+FarsiConverter.UnknwonChars[LastLeftNonChar+1:LastRightNonChar]+FarsiConverter.UnknwonChars[:LastLeftNonChar+1][::-1]
+
+            if AllNonChar==False:
+                FarsiConverter.ConvertedText+=FarsiConverter.UnknwonChars[::-1]
+            else:
+                FarsiConverter.ConvertedText+=FarsiConverter.UnknwonChars
+
             FarsiConverter.UnknwonChars=''
             FarsiConverter.lastchar=None
 
