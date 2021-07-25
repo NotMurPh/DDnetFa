@@ -3,7 +3,8 @@ from PyQt5.QtWidgets import QMainWindow,QApplication
 from PyQt5.QtCore import QPoint
 import DDNetFa
 import random
-
+import windows_font_installer
+import os
 
 class Ui_MainWindow(QMainWindow):
     def __init__(self):
@@ -57,13 +58,18 @@ class Ui_MainWindow(QMainWindow):
             color: #eeeeee;
         }''')
 
+        separator = '\\' if os.name == 'nt' else '/'
+        # os.chdir(os.path.dirname(__file__))
+        if 'IRANSansWeb.ttf' not in os.listdir(f'{os.environ["SystemRoot"]}{separator}Fonts'):
+            windows_font_installer.install_font(f'Fonts{separator}IRANSansWeb.ttf')
+
         font = QtGui.QFont()
         font.setFamily('IRANSansWeb')
         self.setFont(font)
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         _translate = QtCore.QCoreApplication.translate
         self.setWindowTitle(_translate('MainWindow', 'DDNetFa'))
-        self.setWindowIcon(QtGui.QIcon(r'Icons\DDNetFaIcon.svg'))
+        self.setWindowIcon(QtGui.QIcon(f'Icons{separator}DDNetFaIcon.svg'))
         self.setFocus()
         self.show()
         
@@ -72,7 +78,7 @@ class Ui_MainWindow(QMainWindow):
         self.exit_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.exit_btn.setObjectName('exit_btn')
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(r'Icons\close.svg'))
+        icon.addPixmap(QtGui.QPixmap(f'Icons{separator}close.svg'))
         self.exit_btn.setIcon(icon)
         self.exit_btn.clicked.connect(self.close)
         self.exit_btn.show()
@@ -81,7 +87,7 @@ class Ui_MainWindow(QMainWindow):
         self.min_btn.setGeometry(QtCore.QRect(740,0,30,30))
         self.min_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.min_btn.setObjectName('min_btn')
-        icon.addPixmap(QtGui.QPixmap(r'Icons\min.svg'))
+        icon.addPixmap(QtGui.QPixmap(f'Icons{separator}min.svg'))
         self.min_btn.setIcon(icon)
         self.min_btn.clicked.connect(self.showMinimized)
         self.min_btn.show()
@@ -131,21 +137,21 @@ class Ui_MainWindow(QMainWindow):
         self.discord_icon = QtWidgets.QLabel(self)
         self.discord_icon.setGeometry(QtCore.QRect(242+right,195+down,21,21))
         self.discord_icon.setObjectName('discord_icon')
-        self.discord_icon.setPixmap(QtGui.QPixmap(r'Icons\Discord-Logo-White.svg'))
+        self.discord_icon.setPixmap(QtGui.QPixmap(f'Icons{separator}Discord-Logo-White.svg'))
         self.discord_icon.setScaledContents(True)
         self.discord_icon.show()
 
         self.telegram_icon = QtWidgets.QLabel(self)
         self.telegram_icon.setGeometry(QtCore.QRect(435+right,197+down,15,15))
         self.telegram_icon.setObjectName('telegram_icon')
-        self.telegram_icon.setPixmap(QtGui.QPixmap(r'Icons\telegram.svg'))
+        self.telegram_icon.setPixmap(QtGui.QPixmap(f'Icons{separator}telegram.svg'))
         self.telegram_icon.setScaledContents(True)
         self.telegram_icon.show()
 
         self.teeworlds_icon = QtWidgets.QLabel(self)
         self.teeworlds_icon.setGeometry(QtCore.QRect(316+right,196+down,17,17))
         self.teeworlds_icon.setObjectName('teeworlds_icon')
-        self.teeworlds_icon.setPixmap(QtGui.QPixmap(r'Icons\teeworlds.svg'))
+        self.teeworlds_icon.setPixmap(QtGui.QPixmap(f'Icons{separator}teeworlds.svg'))
         self.teeworlds_icon.setScaledContents(True)
         self.teeworlds_icon.show()
 

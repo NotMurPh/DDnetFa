@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01-GitHub/DDNetFa/DDNetFaGUI.py"
+   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01 - GitHub/DDNetFa/DDNetFaGUI.py"
   },
   {
    "optionDest": "onefile",
@@ -19,7 +19,7 @@
   },
   {
    "optionDest": "icon_file",
-   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01-GitHub/DDNetFa/Icons/DDNetFa.ico"
+   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01 - GitHub/DDNetFa/Icons/DDNetFa.ico"
   },
   {
    "optionDest": "name",
@@ -63,11 +63,19 @@
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01-GitHub/DDNetFa/DDNetFa.py;."
+   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01 - GitHub/DDNetFa/DDNetFa.py;."
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01-GitHub/DDNetFa/Icons;Icons/"
+   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01 - GitHub/DDNetFa/windows_font_installer.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01 - GitHub/DDNetFa/Icons;Icons/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/PouyaCr72/Desktop/Projects/Python Projects/01 - GitHub/DDNetFa/Fonts;Fonts/"
   }
  ],
  "nonPyinstallerOptions": {
